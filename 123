@@ -1,0 +1,46 @@
+<form action="" method="GET">
+      <input type="text" name="name">
+      <input type="submit">
+</form>
+
+<?php
+
+   if (isset($_REQUEST['name'])) {
+		$name = file_put_contents("test2.txt", $_REQUEST['name']);
+	}
+   echo file_get_contents("test2.txt");
+
+   echo "<br> <hr>";
+   
+   echo file_get_contents("test.txt");
+
+
+   echo "<br> <hr>";
+
+   var_dump(file_exists("test.txt"));
+
+   echo "<br> <hr>";
+
+   $f = fopen("file_count.txt", "a");
+   fwrite($f, "1");
+   fclose($f);
+   echo file_get_contents("file_count.txt");
+
+   echo "<br> <hr>";
+
+   if (isset($_REQUEST['submit'])) {
+	$age = strip_tags($_REQUEST['age']);
+	$name = strip_tags($_REQUEST['name']);
+	$message = strip_tags($_REQUEST['message']);
+	echo "Hi, $name, $age <br> your message: $message";
+	}
+
+?>
+
+<form action="" method="GET">
+   <input type="text" name="name">
+   <br>
+   <textarea name="message"></textarea>
+   <br>
+   <input type="submit" name="submit">
+</form>
